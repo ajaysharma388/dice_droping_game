@@ -33,43 +33,62 @@ class DicePage extends StatefulWidget {
 class _DicePageState extends State<DicePage> {
   static var rnd = new Random();
   int attempt = 50;
-  int leftDice = rnd.nextInt(6) + 1;
-  int rightDice = rnd.nextInt(6) + 1;
+  int d1 = rnd.nextInt(6) + 1;
+  int d2 = rnd.nextInt(6) + 1;
+  int d3 = rnd.nextInt(6) + 1;
+  int d4 = rnd.nextInt(6) + 1;
   @override
   Widget build(BuildContext context) {
-//    int leftDice = rnd.nextInt(6) + 1;
-//    int rightDice = rnd.nextInt(6) + 1;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Center(
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Image.asset('assets/images/dice$leftDice.png'),
-                ),
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Image.asset('assets/images/dice$d1.png'),
               ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Image.asset('assets/images/dice$rightDice.png'),
-                ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Image.asset('assets/images/dice$d2.png'),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
+        //Center(
+        //child:
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Image.asset('assets/images/dice$d3.png'),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Image.asset('assets/images/dice$d4.png'),
+              ),
+            ),
+          ],
+        ),
+        //),
         Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(5.0),
           child: RaisedButton(
             color: Colors.white,
             onPressed: () {
               setState(() {
-                leftDice = rnd.nextInt(6) + 1;
-                rightDice = rnd.nextInt(6) + 1;
+                d1 = rnd.nextInt(6) + 1;
+                d2 = rnd.nextInt(6) + 1;
+                d3 = rnd.nextInt(6) + 1;
+                d4 = rnd.nextInt(6) + 1;
                 attempt = attempt - 1;
-                if (leftDice == 6 && rightDice == 6)
+                if (d1 == 6 && d2 == 6 && d3 == 6 && d4 == 6)
                   winContest(context);
                 else if (attempt == 0) loseContest(context);
               });
@@ -95,8 +114,8 @@ class _DicePageState extends State<DicePage> {
             horizontal: 30,
           ),
           child: SizedBox(
-            height: 100,
-            width: 100,
+            height: 75,
+            width: 75,
             child: Center(
               child: Text(
                 '$attempt',
@@ -136,10 +155,7 @@ class _DicePageState extends State<DicePage> {
           child: Text('Restart'),
           onPressed: () {
             setState(() {
-              leftDice = rnd.nextInt(6) + 1;
-              rightDice = rnd.nextInt(6) + 1;
-              attempt = 50;
-              Navigator.of(context).pop();
+              restart(context);
             });
           },
         ),
@@ -173,10 +189,7 @@ class _DicePageState extends State<DicePage> {
           child: Text('Restart'),
           onPressed: () {
             setState(() {
-              leftDice = rnd.nextInt(6) + 1;
-              rightDice = rnd.nextInt(6) + 1;
-              attempt = 50;
-              Navigator.of(context).pop();
+              restart(context);
             });
           },
         ),
@@ -189,5 +202,14 @@ class _DicePageState extends State<DicePage> {
         return alertDailog;
       },
     );
+  }
+
+  void restart(BuildContext context) {
+    d1 = rnd.nextInt(6) + 1;
+    d2 = rnd.nextInt(6) + 1;
+    d3 = rnd.nextInt(6) + 1;
+    d4 = rnd.nextInt(6) + 1;
+    attempt = 50;
+    Navigator.of(context).pop();
   }
 }
