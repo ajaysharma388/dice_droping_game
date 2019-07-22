@@ -2,17 +2,18 @@
 
 A new Flutter application.
 
-## Getting Started
+## Home Page
 
-This project is a starting point for a Flutter application.
+![Finished App](https://github.com/ajaysharma388/dice_droping_game/blob/master/Deployement%20Images/Dicee.png)
 
-A few resources to get you started if this is your first Flutter project:
+On Clicking On Play With Dice You see that the dices are rolling and in this App at max you are allowed to have 50 attempt and if all the Dice encounter the number 6 then you will win the Game(see, WinScreen) but if all the moves played and you did'nt get 6 on all dices the you will lose the Game(see, LoseScreen).
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## LoseScreen
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Finished App](https://github.com/ajaysharma388/dice_droping_game/blob/master/Deployement%20Images/LoseScreen.png)
+
+## WinScreen
+
+![Finished App](https://github.com/ajaysharma388/dice_droping_game/blob/master/Deployement%20Images/WinScreen.png)
 
 ## @Author : Ajay Sharma.
